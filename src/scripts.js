@@ -58,9 +58,9 @@ function totalBookingsCost() {
 
 function displayUserData() {
     currentCustomer.customersBookings.forEach(booking => {
-        bookingsList.insertAdjacentHTML('beforeend', `<p>${booking.date} Room Number: ${booking.roomNumber}</p>`)
+        bookingsList.insertAdjacentHTML('beforeend', `<p tabindex="0">${booking.date} Room Number: ${booking.roomNumber}</p>`)
     })
-    totalCostOfBookings.innerHTML = `<p>You've spent: $${totalBookingsCost()}`
+    totalCostOfBookings.innerHTML = `<p tabindex="0">You've spent: $${totalBookingsCost()}`
 }
 
 function checkInputs(event) {
@@ -93,7 +93,7 @@ function filterNewBooking() {
 function showAvailableBookings() {
     availableBookingSection.innerHTML = ''
     available.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}" tabindex="0">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost(per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
@@ -106,14 +106,14 @@ function filterResults() {
     availableBookingSection.innerHTML = ''
     roomFilter = available.filter(room => room.roomType === roomTypeSelector.value)
     roomFilter.forEach(booking => {
-        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost (per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
+        availableBookingSection.insertAdjacentHTML('beforeend', `<p id="${booking.number}" tabindex="0">Bed Size: ${booking.bedSize}, Room Type: ${booking.roomType}, Bidet: ${booking.bidet}, Cost (per night): ${booking.costPerNight}, Number of Beds: ${booking.numBeds}, Room Number: ${booking.number}</p>`)
     })
     checkForUnavailable()
 }
 
 function checkForUnavailable() {
     if(unavailable === [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
-        availableBookingSection.innerHTML = `<p> We are so sorry but there seems to be no available bookings for that day!</p>`
+        availableBookingSection.innerHTML = `<p tabindex="0"> We are so sorry but there seems to be no available bookings for that day!</p>`
     }
 }
 
